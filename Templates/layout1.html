@@ -44,13 +44,26 @@
                    {%  with messages = get_flashed_messages()  %}
                    {% if messages %}
 
+                   {% for message in messages %}
+                   {% if message != 'Existe El Contacto y/o El E-mail' %}
+
+                  
                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                     {{messages}}
+                     {{message}}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                    </div>
+                    {% else %} 
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                     <strong>Error!.....</strong>{{message}}
                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                        <span aria-hidden="true">&times;</span>
                      </button>
                     </div>
 
+                  {% endif %}
+                  {% endfor %}
                   {% endif %}
                   {% endwith %}  
                   {% endblock %}

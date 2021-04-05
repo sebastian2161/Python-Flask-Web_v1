@@ -48,7 +48,7 @@ def index():
 def crear():
     return render_template('crear.html')
 
-@app.route('/crear_datos', methods = ['POST'])
+@app.route('/crear_datos', methods = ['GET', 'POST'])
 def crear_datos():
       
     if request.method == 'POST':
